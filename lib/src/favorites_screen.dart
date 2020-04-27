@@ -19,9 +19,18 @@ class FavoritesScreen extends StatelessWidget {
               child: Text('No favorites so far'),
             )
           : ListView.builder(
-              itemBuilder: (_, index) => ListTile(
-                title: Text(
-                  favoriteNames.toList()[index],
+              itemBuilder: (_, index) => Hero(
+                tag: '${favoriteNames.toList()[index]}',
+                child: Card(
+                  child: ListTile(
+                    title: Text(
+                      favoriteNames.toList()[index],
+                    ),
+                    trailing: IconButton(
+                        icon: Icon(Icons.favorite),
+                        color: Colors.red,
+                        onPressed: () {}),
+                  ),
                 ),
               ),
               itemCount: favoriteNames.length,
